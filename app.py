@@ -305,3 +305,13 @@ with right:
         st.plotly_chart(fig, use_container_width=True)
 
 process_queue()
+
+# ---------------------------
+# TABEL DATA
+# ---------------------------
+st.header("Tabel Data (Realtime)")
+df_table = pd.DataFrame(st.session_state.logs[-300:])
+if not df_table.empty:
+    st.dataframe(df_table, use_container_width=True, height=400)
+else:
+    st.info("Belum ada data masuk.")
